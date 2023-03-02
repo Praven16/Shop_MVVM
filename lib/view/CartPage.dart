@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_mvvm/view/CartBottomNavbar.dart';
 import 'package:shop_mvvm/view_model/ProductViewModel.dart';
 
 class CartPage extends StatefulWidget {
@@ -26,16 +27,12 @@ class _CartPageState extends State<CartPage> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: Consumer<ProductViewModel>(builder: (context,data1,child){
-              return Row(
-                children: <Widget>[
-
-                  Expanded(child: Text("My Cart (${data1.countCart.toString()})")),
-                  Text("Total Price: "+data1.totalPrice.toString()),
-
-                ],
-              );
-            })
+            iconTheme: IconThemeData(
+              color:Color(0xFF330413), //change your color here
+            ),
+            title: Text("Cart", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:Color(0xFF330413))),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
           ),
           body: Consumer<ProductViewModel>(builder: (context,data,child){
             return ListView.builder(
@@ -76,8 +73,10 @@ class _CartPageState extends State<CartPage> {
                   );
                 }
             );
-          })
+          }),
+          bottomNavigationBar: CartBottomNavbar(),
         )
+
     );
   }
 }

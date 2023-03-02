@@ -26,8 +26,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: Text("Shop MVVM",style: TextStyle(color: Colors.blue),),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Text("Shop MVVM",style: TextStyle(color:Color(0xFF330413)),),
               actions: [
                 Consumer<ProductViewModel>(
                     builder: (context,data1,child){
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             children: <Widget>[
 
-                              Icon(Icons.shopping_cart,color: Colors.blue,),
+                              Icon(Icons.shopping_cart,color: Color(0xFF330413),),
                               Text(data1.countCart.toString(),style: TextStyle(color: Colors.blue),)
 
                             ],
